@@ -3,7 +3,8 @@
 var
   gulp    = require('gulp'),
   compass = require('gulp-compass'),
-  jade    = require('gulp-jade')
+  jade    = require('gulp-jade'),
+  coffee   = require('gulp-coffee')
 ;
 
 gulp.task('sass', function(){
@@ -23,4 +24,10 @@ gulp.task('jade', function(){
         pretty: true
       }))
       .pipe(gulp.dest('./'))
+});
+
+gulp.task('coffee', function(){
+  gulp.src('./src/coffee/**/*.coffee')
+      .pipe(coffee())
+      .pipe(gulp.dest('./public/js/'))
 });
