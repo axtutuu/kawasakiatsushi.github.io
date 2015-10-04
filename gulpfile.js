@@ -1,8 +1,9 @@
 'use strict';
 
 var
-  gulp = require('gulp'),
-  compass = require('gulp-compass')
+  gulp    = require('gulp'),
+  compass = require('gulp-compass'),
+  jade    = require('gulp-jade')
 ;
 
 gulp.task('sass', function(){
@@ -14,4 +15,12 @@ gulp.task('sass', function(){
       css        : './public/css/',
       sass       : './src/sass/'
     }));
+});
+
+gulp.task('jade', function(){
+  gulp.src('./src/jade/**/*.jade')
+      .pipe(jade({
+        pretty: true
+      }))
+      .pipe(gulp.dest('./'))
 });
