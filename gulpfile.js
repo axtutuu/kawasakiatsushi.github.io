@@ -1,11 +1,33 @@
 'use strict';
 
+/**************************************************
+ * modules laod
+ *************************************************/
 var
   gulp    = require('gulp'),
   compass = require('gulp-compass'),
   jade    = require('gulp-jade'),
-  coffee   = require('gulp-coffee')
+  coffee   = require('gulp-coffee'),
+  connect = require('gulp-connect')
+  // watchify   = require( 'watchify' ),
+  // browserify = require( 'browserify' )
 ;
+
+/**************************************************
+ * path
+ *************************************************/
+var
+  cssSrcPath = './src/sass',
+  cssDestPath = './public/css',
+  htmlSrcPath = './src/jade',
+  htmlDestPath = './',
+  jsSrcPath = './src/coffee',
+  jsDestPath = './public/js'
+;
+
+/**************************************************
+ * tasks
+ *************************************************/
 
 gulp.task('sass', function(){
   gulp
@@ -30,4 +52,18 @@ gulp.task('coffee', function(){
   gulp.src('./src/coffee/**/*.coffee')
       .pipe(coffee())
       .pipe(gulp.dest('./public/js/'))
+});
+
+gulp.task('watch', function(){
+  gulp.watch('./src/sass/**/*.sass', ['sass']);
+  gulp.watch('./src/jade/**/*.jade', ['jade']);
+  gulp.watch('./src/coffee/**/*.coffee', ['watch']);
+});
+
+// TODO: うまくいってない
+gulp.task('connect', function(){
+  connect.server({
+    root: '/Users/kawasaki-atsushi/workspace/kawasakiatsushi.github.io/',
+    livereload: true
+  });
 });
