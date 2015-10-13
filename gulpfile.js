@@ -31,7 +31,7 @@ var
 
 gulp.task('sass', function(){
   gulp
-    .src('./src/sass/**/*.sass')
+    .src('./src/sass/**/*.scss')
     .pipe(compass({
       config_file: './config/compass.rb', // Compass設定ファイル
       comments   : false,
@@ -55,9 +55,9 @@ gulp.task('coffee', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch('./src/sass/**/*.sass', ['sass']);
+  gulp.watch('./src/sass/**/*.scss', ['sass']);
   gulp.watch('./src/jade/**/*.jade', ['jade']);
-  gulp.watch('./src/coffee/**/*.coffee', ['watch']);
+  gulp.watch('./src/coffee/**/*.coffee', ['coffee']);
 });
 
 // TODO: うまくいってない
