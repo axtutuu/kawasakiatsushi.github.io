@@ -16,7 +16,7 @@ init = () ->
   container = document.createElement('div')
   document.body.appendChild(container)
 
-  global.renderer.setClearColor(0xFFFFFF, 1.0)
+  global.renderer.setClearColor(0x000000, 1.0)
   container.appendChild(global.renderer.domElement)
 
   # シーン設定
@@ -71,22 +71,23 @@ initObject = () ->
 
   # メッシュの生成
   mesh = new THREE.Mesh( geometry, material )
-  mesh.position.set(0, 0, -350)
+  mesh.position.set(0, 0, -750)
 
   # 描画
   global.scene.add( mesh )
 
-  # # ジオメトリの生成 ( 半径150 経度分割数と緯度分割数が23に球体ジオメトリ)
-  # geometry2 = new THREE.SphereGeometry( 150, 12, 12 )
+  # ジオメトリの生成 ( 半径150 経度分割数と緯度分割数が23に球体ジオメトリ)
+  geometry2 = new THREE.SphereGeometry( 20, 12, 12 )
 
-  # # マテリアル hexコードff00ffの色 ワイヤーフレームを有効のマテリアル
-  # material2 = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: true } )
+  # マテリアル hexコードff00ffの色 ワイヤーフレームを有効のマテリアル
+  material2 = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: true } )
 
-  # # メッシュの生成
-  # mesh2 = new THREE.Mesh( geometry2, material2 )
+  # メッシュの生成
+  mesh2 = new THREE.Mesh( geometry2, material2 )
+  mesh2.position.set(50, 50, -450)
 
-  # # 描画
-  # global.scene.add( mesh2 )
+  # 描画
+  global.scene.add( mesh2 )
 
 
   # plane = new THREE.Mesh(
