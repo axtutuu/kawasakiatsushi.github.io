@@ -10,7 +10,7 @@ var
   coffee   = require('gulp-coffee'),
   connect = require('gulp-connect')
   // watchify   = require( 'watchify' ),
-  // browserify = require( 'browserify' )
+  browserify = require( 'browserify' )
 ;
 
 /**************************************************
@@ -60,10 +60,12 @@ gulp.task('watch', function(){
   gulp.watch('./src/coffee/**/*.coffee', ['coffee']);
 });
 
-// TODO: うまくいってない
 gulp.task('connect', function(){
   connect.server({
     root: '/Users/kawasaki-atsushi/workspace/kawasakiatsushi.github.io/',
     livereload: true
   });
+});
+
+gulp.task('build', function(){
 });
